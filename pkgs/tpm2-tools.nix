@@ -1,34 +1,30 @@
-{ lib, stdenv, fetchFromGitHub, autoconf, automake, libtool, pkgconfig, uriparser, autoconf-archive, libgcrypt, tpm-tss, openssl, curl, pandoc, m4 }:
+{ lib, stdenv, libtool, pkgconfig, libgcrypt, tpm-tss, openssl, curl, pandoc,
+  python36, file
+}:
 stdenv.mkDerivation rec {
-  version = "3.0.4";
+  version = "3.1.2";
   name = "tpm-tools-${version}";
 
-  src = fetchFromGitHub {
-    owner ="tpm2-software";
-    repo = "tpm2-tools";
-    rev = "3.0.4";
-    sha256 = "1lpw8m9n0bc9b5hbdlmsmd70y5lz6gb5grl9kdipv79p1scqnz4h";
+  src = fetchTarball {
+    url = "https://github.com/tpm2-software/tpm2-tools/releases/download/${version}/tpm2-tools-${version}.tar.gz";
+    sha256 = "1p1mj5s095m71xp0gp1fibmv3h6fp9f66byf8shay017gma3i138";
   };
 
-  nativeBuildInputs = [
-    autoconf automake libtool pkgconfig
-    uriparser autoconf-archive libgcrypt
+  buildInputs = [
+    libtool pkgconfig
     tpm-tss
-    openssl
+    openssl libgcrypt
     curl.dev
-    curl.out
 
     pandoc
-    m4
+    (python36.withPackages(ps: with ps; [ pyyaml ]))
   ];
 
   preConfigure = ''
-    export PKG_CONFIG_PATH="${tpm-tss}/lib/pkgconfig:$PKG_CONFIG_PATH"
-    echo WAAAAAAH
-    echo $PKG_CONFIG_PATH
-    echo WAAAAAAH
-    ./bootstrap
+    substituteInPlace configure --replace "/usr/bin/file" "${file}/bin/file"
   '';
+
+  # TODO enable unit tests
 
   meta = {
     homepage = https://github.com/tpm2-software/tpm2-tools;

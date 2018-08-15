@@ -1,24 +1,22 @@
-{ lib, stdenv, fetchFromGitHub, libtool, autoconf, automake, pkgconfig, uriparser, autoconf-archive, libgcrypt }:
+{ lib, stdenv,  pkgconfig, libgcrypt, doxygen, file, perl }:
 
 stdenv.mkDerivation rec {
   name = "tpm-tss-${version}";
-  version = "1.4.0";
+  version = "2.0.1";
 
-  src = fetchFromGitHub {
-    owner ="tpm2-software";
-    repo = "tpm2-tss";
-    rev = version;
-    #sha256 = "1ih2s578h7ic48v6p5d4ll03c7k16pckiijj4y8mxsnh9yg5zniz";  # 2.0.0_rc2
-    sha256 = "19m5q890484i2ya9jngj1694l2wsck5x3h0i9bvamz35pjlfrwds";  # 1.4.0
+  src = fetchTarball {
+    url = "https://github.com/tpm2-software/tpm2-tss/releases/download/${version}/tpm2-tss-${version}.tar.gz";
+    sha256 = "03zg1hy6mys36yf9968rlmydsv9qmqyl1iagad871y4wsghdp5n4";
   };
 
-  nativeBuildInputs = [
-    libtool autoconf automake pkgconfig uriparser autoconf-archive libgcrypt
+  buildInputs = [
+    pkgconfig
+    libgcrypt
+    doxygen perl
   ];
 
   preConfigure = ''
-    substituteInPlace bootstrap --replace "git describe --tags --always --dirty" "echo ${version}"
-    ./bootstrap
+    substituteInPlace configure --replace "/usr/bin/file" "${file}/bin/file"
   '';
 
   meta = {
