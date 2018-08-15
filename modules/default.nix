@@ -1,0 +1,4 @@
+{
+   cpupower = ./cpupower.nix;
+}
+
