@@ -153,7 +153,7 @@ in
       }
     ];
 
-    system.activationScripts.ip-to-usb_qrcode = ''
+    system.activationScripts.ip-to-usb_qrcode = mkIf (cfg.qrCode != null) ''
       ${pkgs.qrencode}/bin/qrencode -o "${cfg.qrCode}" "${qrCodeContent}"
     '';
 
