@@ -1,12 +1,12 @@
-{ lib, stdenv,  pkgconfig, libgcrypt, doxygen, file, perl }:
+{ lib, stdenv, fetchurl, pkgconfig, libgcrypt, doxygen, file, perl }:
 
 stdenv.mkDerivation rec {
   name = "tpm-tss-${version}";
   version = "2.0.1";
 
-  src = fetchTarball {
+  src = fetchurl {
     url = "https://github.com/tpm2-software/tpm2-tss/releases/download/${version}/tpm2-tss-${version}.tar.gz";
-    sha256 = "03zg1hy6mys36yf9968rlmydsv9qmqyl1iagad871y4wsghdp5n4";
+    sha256 = "1rb0n8b0b0a45956s68qw8ciyb20lc1agc60s23hv8bm8chjafx5";
   };
 
   buildInputs = [
