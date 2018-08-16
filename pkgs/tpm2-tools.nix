@@ -1,13 +1,13 @@
-{ lib, stdenv, libtool, pkgconfig, libgcrypt, tpm-tss, openssl, curl, pandoc,
+{ lib, stdenv, fetchurl, libtool, pkgconfig, libgcrypt, tpm-tss, openssl, curl, pandoc,
   python36, file
 }:
 stdenv.mkDerivation rec {
   version = "3.1.2";
   name = "tpm-tools-${version}";
 
-  src = fetchTarball {
+  src = fetchurl {
     url = "https://github.com/tpm2-software/tpm2-tools/releases/download/${version}/tpm2-tools-${version}.tar.gz";
-    sha256 = "1p1mj5s095m71xp0gp1fibmv3h6fp9f66byf8shay017gma3i138";
+    sha256 = "1532yg75znkwwzrljvi818ajc8d25di602dp6kfqqkbv4hmnq4w0";
   };
 
   buildInputs = [
