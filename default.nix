@@ -8,7 +8,7 @@ rec {
 
   # TODO update and eventually upstream into nixpkgs
   tpm2-tools = pkgs.callPackage ./pkgs/tpm2/tpm2-tools.nix {
-    tpm2-tss = tpm2-tss;
+    inherit tpm2-tss;
   };
   tpm2-tss = pkgs.callPackage ./pkgs/tpm2/tpm2-tss.nix {};
 
