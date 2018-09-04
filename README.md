@@ -48,6 +48,8 @@ Patched cloc to support the nix language (should be already in nixpkgs master)
 .modules.cpupower
 .modules.ip-to-usb
 
+.rfc-reader
+
 .youtube-rss
 
 .tpm2-tools
