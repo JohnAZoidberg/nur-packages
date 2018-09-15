@@ -4,6 +4,8 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  uefi-driver-wizard = pkgs.callPackage ./pkgs/uefi-driver-wizard.nix {};
+
   chipsec = pkgs.callPackage ./pkgs/chipsec.nix {};
 
   rfc-reader = pkgs.callPackage ./pkgs/rfc-reader {};
