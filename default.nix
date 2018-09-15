@@ -4,6 +4,8 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  chipsec = pkgs.callPackage ./pkgs/chipsec.nix {};
+
   rfc-reader = pkgs.callPackage ./pkgs/rfc-reader {};
 
   youtube-rss = pkgs.callPackage ./pkgs/youtuberss.nix {};
