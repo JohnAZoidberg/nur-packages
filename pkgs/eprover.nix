@@ -4,7 +4,7 @@ stdenv.mkDerivation rec {
   version = "2.1";
 
   src = fetchurl {
-    url = "http://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_${version}/E.tgz";
+    url = "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_${version}/E.tgz";
     sha256 = "1gh99ajmza33f54idhqkdqxp5zh2k06jsf45drihnrzydlqv1n7l";
   };
 
