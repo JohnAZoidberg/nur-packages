@@ -30,11 +30,6 @@ rec {
     inherit libdatrie libthai;
   };
 
-  # Cloc with nix support
-  cloc = pkgs.cloc.overrideAttrs (oldAttrs: {
-    patches = [ ./pkgs/cloc-nix.diff ];
-  });
-
   # Only guaranteed to work with the packages @5da85431fb1df4fb3ac36730b2591ccc9bdf5c21
   okernel-procps-src = pkgs.procps-ng.overrideAttrs (oldAttrs: {
     patches = [];
