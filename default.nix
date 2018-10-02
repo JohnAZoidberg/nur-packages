@@ -4,6 +4,8 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  eprover = pkgs.callPackage ./pkgs/eprover.nix {};
+
   u-root = pkgs.callPackage ./pkgs/u-root {};
 
   uefi-driver-wizard = pkgs.callPackage ./pkgs/uefi-driver-wizard.nix {};
