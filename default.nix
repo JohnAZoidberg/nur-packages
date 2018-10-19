@@ -4,6 +4,8 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  timg = pkgs.callPackage ./pkgs/timg.nix {};
+
   eprover = pkgs.callPackage ./pkgs/eprover.nix {};
 
   u-root = pkgs.callPackage ./pkgs/u-root {};
