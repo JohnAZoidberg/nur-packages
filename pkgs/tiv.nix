@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
 
   meta = with stdenv.lib; {
     description = "Small C++ program to display images in a (modern) terminal using RGB ANSI codes and unicode block graphics characters";
-    license = licenses.apache2;
+    license = licenses.asl20;
     homepage = https://github.com/stefanhaustein/TerminalImageViewer;
     maintainers = with maintainers; [ johnazoidberg ];
     platforms = platforms.all;
