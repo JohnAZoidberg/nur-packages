@@ -6,6 +6,11 @@ rec {
 
   fbset = pkgs.callPackage ./pkgs/fbset.nix {};
 
+  voctomix = pkgs.callPackage ./pkgs/voctomix.nix {
+    inherit (pkgs.gst_all_1) gstreamer gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly;
+    inherit fbset;
+  };
+
   isabelle2018 = pkgs.callPackage ./pkgs/isabelle2018.nix {
     polyml = pkgs.polyml56;
     java = if pkgs.stdenv.isLinux then pkgs.jre else pkgs.jdk;
