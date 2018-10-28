@@ -4,6 +4,8 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  fbset = pkgs.callPackage ./pkgs/fbset.nix {};
+
   isabelle2018 = pkgs.callPackage ./pkgs/isabelle2018.nix {
     polyml = pkgs.polyml56;
     java = if pkgs.stdenv.isLinux then pkgs.jre else pkgs.jdk;
