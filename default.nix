@@ -25,7 +25,10 @@ rec {
 
   uefi-driver-wizard = pkgs.callPackage ./pkgs/uefi-driver-wizard.nix {};
 
-  chipsec = pkgs.callPackage ./pkgs/chipsec.nix {};
+  chipsec = pkgs.callPackage ./pkgs/chipsec.nix {
+    kernel = pkgs.linuxPackages.kernel;
+    withDriver = true;
+  };
 
   rfc-reader = pkgs.callPackage ./pkgs/rfc-reader {};
 
