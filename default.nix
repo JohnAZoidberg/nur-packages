@@ -6,6 +6,10 @@ rec {
 
   python-oath = pkgs.callPackage ./pkgs/python-oath.nix {};
 
+  python-vipaccess = pkgs.python36Packages.callPackage ./pkgs/python-vipaccess.nix {
+    oath = python-oath;
+  };
+
   fbset = pkgs.callPackage ./pkgs/fbset.nix {};
 
   voctomix = pkgs.callPackage ./pkgs/voctomix.nix {
