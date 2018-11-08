@@ -4,6 +4,8 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  python-oath = pkgs.callPackage ./pkgs/python-oath.nix {};
+
   fbset = pkgs.callPackage ./pkgs/fbset.nix {};
 
   voctomix = pkgs.callPackage ./pkgs/voctomix.nix {
