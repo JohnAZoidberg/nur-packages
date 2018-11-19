@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
 
   meta = with stdenv.lib; {
     description = "Colour your stderr red";
-    license = licenses.lgpl2plus;
+    license = licenses.lgpl2Plus;
     homepage = https://github.com/poettering/rederr;
     maintainers = with maintainers; [ johnazoidberg ];
     platforms = platforms.all;
