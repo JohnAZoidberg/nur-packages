@@ -8,6 +8,10 @@ rec {
     pkgs.python3Packages.callPackage ./pkgs/python-pkgs { }
   );
 
+  multivault = pkgs.callPackage ./pkgs/multivault.nix {
+    myPython3Packages = python3Packages;
+  };
+
   rederr = pkgs.callPackage ./pkgs/rederr.nix {};
 
   python-oath = pkgs.callPackage ./pkgs/python-oath.nix {};
