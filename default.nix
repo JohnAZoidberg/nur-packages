@@ -4,6 +4,10 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  python3Packages = pkgs.recurseIntoAttrs (
+    pkgs.python3Packages.callPackage ./pkgs/python-pkgs { }
+  );
+
   rederr = pkgs.callPackage ./pkgs/rederr.nix {};
 
   python-oath = pkgs.callPackage ./pkgs/python-oath.nix {};
