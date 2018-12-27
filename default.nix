@@ -4,6 +4,8 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  uefitool = pkgs.qt5.callPackage ./pkgs/uefitool.nix {};
+
   caas = pkgs.callPackages ./pkgs/caas.nix {
     jre = pkgs.jdk11;
     maven = pkgs.maven.overrideAttrs (old: {
