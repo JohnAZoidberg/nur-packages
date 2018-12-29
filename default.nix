@@ -4,6 +4,10 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  dkgpg = pkgs.callPackage ./pkgs/dkgpg.nix {
+    inherit libtmcg;
+    bzip2 = pkgs.bzip2;
+  };
   libtmcg = pkgs.callPackage ./pkgs/libtmcg.nix {};
 
   uefitool = pkgs.qt5.callPackage ./pkgs/uefitool.nix {};
