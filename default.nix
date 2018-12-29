@@ -4,6 +4,8 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  libtmcg = pkgs.callPackage ./pkgs/libtmcg.nix {};
+
   uefitool = pkgs.qt5.callPackage ./pkgs/uefitool.nix {};
 
   caas = pkgs.callPackages ./pkgs/caas.nix {
