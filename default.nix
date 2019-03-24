@@ -13,9 +13,9 @@ rec {
   uefitool = pkgs.qt5.callPackage ./pkgs/uefitool.nix {};
 
   caas = pkgs.callPackages ./pkgs/caas.nix {
-    jre = pkgs.jdk11;
+    jre = pkgs.openjdk11;
     maven = pkgs.maven.overrideAttrs (old: {
-      jdk = pkgs.jdk11;
+      jdk = pkgs.openjdk11;
     });
   };
 
