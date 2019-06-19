@@ -4,6 +4,8 @@ rec {
   modules = import ./modules;
   overlays = import ./overlays;
 
+  teams-for-linux = pkgs.callPackage ./pkgs/teams-for-linux.nix {};
+
   dkgpg = pkgs.callPackage ./pkgs/dkgpg.nix {
     inherit libtmcg;
     bzip2 = pkgs.bzip2;
