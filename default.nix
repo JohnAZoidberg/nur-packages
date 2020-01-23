@@ -6,7 +6,6 @@ rec {
 
   gtkterm = pkgs.callPackage ./pkgs/gtkterm { };
 
-  teams-for-linux = pkgs.callPackage ./pkgs/teams-for-linux.nix {};
 
   dkgpg = pkgs.callPackage ./pkgs/dkgpg.nix {
     inherit libtmcg;
