@@ -12,7 +12,7 @@ rec {
   };
   libtmcg = pkgs.callPackage ./pkgs/libtmcg.nix {};
 
-  caas = pkgs.callPackages ./pkgs/caas.nix {
+  caas = pkgs.callPackage ./pkgs/caas.nix {
     jre = pkgs.openjdk11;
     maven = pkgs.maven.overrideAttrs (old: {
       jdk = pkgs.openjdk11;
