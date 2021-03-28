@@ -64,9 +64,6 @@ rec {
 
   uefi-driver-wizard = pkgs.callPackage ./pkgs/uefi-driver-wizard.nix {};
 
-  # Without kernel driver, should build and work on MacOS as well
-  chipsec = pkgs.callPackage ./pkgs/chipsec.nix { withDriver = false; };
-
   linuxPackagesFor = kernel: pkgs.lib.makeExtensible (self: with self; {
     chipsec = pkgs.callPackage ./pkgs/chipsec.nix {
       inherit kernel;
