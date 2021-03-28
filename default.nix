@@ -6,14 +6,11 @@ rec {
 
   gtkterm = pkgs.callPackage ./pkgs/gtkterm { };
 
-
   dkgpg = pkgs.callPackage ./pkgs/dkgpg.nix {
     inherit libtmcg;
     bzip2 = pkgs.bzip2;
   };
   libtmcg = pkgs.callPackage ./pkgs/libtmcg.nix {};
-
-  uefitool = pkgs.qt5.callPackage ./pkgs/uefitool.nix {};
 
   caas = pkgs.callPackages ./pkgs/caas.nix {
     jre = pkgs.openjdk11;
