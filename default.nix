@@ -79,11 +79,10 @@ rec {
 
   youtube-rss = pkgs.callPackage ./pkgs/youtuberss.nix {};
 
-  libdatrie = pkgs.callPackage ./pkgs/libdatrie.nix {};
   libthai = pkgs.callPackage ./pkgs/libthai.nix {
     inherit libdatrie;
   };
   thpronun = pkgs.callPackage ./pkgs/thpronun.nix {
-    inherit libdatrie libthai;
+    inherit libthai;
   };
 }
