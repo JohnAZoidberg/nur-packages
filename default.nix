@@ -65,10 +65,10 @@ rec {
   uefi-driver-wizard = pkgs.callPackage ./pkgs/uefi-driver-wizard.nix {};
 
   linuxPackagesFor = kernel: pkgs.lib.makeExtensible (self: with self; {
-    chipsec = pkgs.callPackage ./pkgs/chipsec.nix {
-      inherit kernel;
-      withDriver = true;
-    };
+    #chipsec = pkgs.callPackage ./pkgs/chipsec.nix {
+    #  inherit kernel;
+    #  withDriver = true;
+    #};
   });
   linuxPackages_4_4 = pkgs.recurseIntoAttrs (linuxPackagesFor pkgs.linux_4_4);
   linuxPackages_4_9 = pkgs.recurseIntoAttrs (linuxPackagesFor pkgs.linux_4_9);
