@@ -81,6 +81,7 @@ rec {
 
   thpronun = pkgs.callPackage ./pkgs/thpronun.nix {};
 
+  ams = pkgs.callPackage ./pkgs/ams.nix {};
   ilorest = pkgs.callPackage ./pkgs/ilorest.nix {};
   hponcfg = pkgs.callPackage ./pkgs/hponcfg.nix {};
   ssacli = pkgs.callPackage ./pkgs/ssacli.nix {};
