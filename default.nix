@@ -81,5 +81,6 @@ rec {
 
   thpronun = pkgs.callPackage ./pkgs/thpronun.nix {};
 
+  ilorest = pkgs.callPackage ./pkgs/ilorest.nix {};
   ssacli = pkgs.callPackage ./pkgs/ssacli.nix {};
 }
