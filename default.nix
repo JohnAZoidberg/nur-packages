@@ -80,4 +80,6 @@ rec {
   youtube-rss = pkgs.callPackage ./pkgs/youtuberss.nix {};
 
   thpronun = pkgs.callPackage ./pkgs/thpronun.nix {};
+
+  ssacli = pkgs.callPackage ./pkgs/ssacli.nix {};
 }
