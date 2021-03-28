@@ -1,4 +1,4 @@
-{ stdenv, fetchsvn, autoconf, libtool, automake, pkgconfig }:
+{ stdenv, lib, fetchsvn, autoconf, libtool, automake, pkgconfig }:
 stdenv.mkDerivation rec {
   name = "libthai-${version}";
   rev = "v${version}";
@@ -20,7 +20,7 @@ stdenv.mkDerivation rec {
     ./autogen.sh
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "An implementation of double-array structure for representing trie";
     license = licenses.lgpl2;
     homepage = https://linux.thai.net/projects/datrie;

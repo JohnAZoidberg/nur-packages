@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, cmake, qmake }:
+{ stdenv, lib, fetchFromGitHub, cmake, qmake }:
 stdenv.mkDerivation rec {
   name = "uefitool-${version}";
   version = "A53";
@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
     mv UEFITool $out/bin/
   '';
   
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "UEFI firmware image viewer and editor";
     license = licenses.bsd3;
     homepage = https://github.com/LongSoft/UEFITool;

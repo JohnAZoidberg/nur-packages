@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, pkgconfig, libdatrie }:
+{ stdenv, lib, fetchurl, pkgconfig, libdatrie }:
 stdenv.mkDerivation rec {
   name = "libthai-${version}";
   rev = "v${version}";
@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ pkgconfig libdatrie ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "LibThai aims to ease incorporation of Thai language support in applications";
     license = licenses.gpl3;
     homepage = https://github.com/tlwg/libthai;
