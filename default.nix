@@ -99,6 +99,7 @@ rec {
   ##     HPE     ##
   #################
   ams = pkgs.callPackage ./pkgs/ams.nix {};
+  # TODO: Add python-ilorest-library
   ilorest = pkgs.callPackage ./pkgs/ilorest.nix {};
   hponcfg = pkgs.callPackage ./pkgs/hponcfg.nix {};
   ssacli = pkgs.callPackage ./pkgs/ssacli.nix {};
