@@ -83,6 +83,18 @@ rec {
 
   thpronun = pkgs.callPackage ./pkgs/thpronun.nix {};
 
+  uefi-firmware-parser = pkgs.uefi-firmware-parser.overrideAttrs (old: {
+    prePatch = ''
+      substituteInPlace setup.py --replace 'install_requires' '#install_requires'
+    '';
+    src = pkgs.fetchFromGitHub {
+      owner = "JohnAZoidberg";
+      repo = "uefi-firmware-parser";
+      rev = "parse-depex-binary";
+      sha256 = "sha256:1kphn2k3vv15hmv21radklg58a3a67ay9d3z4xa1iwm379f5d8gs";
+    };
+  });
+
   #################
   ##     HPE     ##
   #################
