@@ -17,5 +17,5 @@ buildFHSUserEnv {
 
   multiPkgs = null;
 
-  runScript = writeScript "hponcfg-script" "${hponcfg-unwrapped}/bin/hponcfg";
+  runScript = writeScript "hponcfg" "${hponcfg-unwrapped}/bin/hponcfg $@";
 }
