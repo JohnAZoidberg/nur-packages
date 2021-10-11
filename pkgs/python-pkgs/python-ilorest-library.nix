@@ -28,7 +28,7 @@ buildPythonPackage rec {
 
   meta = with lib; {
     description = "TODO";
-    license = licenses.unfree if withChif else licenses.unfree;
+    license = if withChif then licenses.unfree else licenses.unfree;
     #homepage = https://github.com/Selfnet/hkp4py;
     maintainers = with maintainers; [ johnazoidberg ];
     platforms = platforms.linux;
