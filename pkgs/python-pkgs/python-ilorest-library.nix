@@ -3,7 +3,6 @@
 , jsonpath_rw
 , jsonpointer
 , urllib3
-, withChif ? false
 }:
 buildPythonPackage rec {
   pname = "python-ilorest-library";
@@ -16,20 +15,20 @@ buildPythonPackage rec {
     hash = "sha256:0px03kazdvzx79vjs2zv0j91iylc9gvbv2hwpwgziqv8j3sd68jn";
   };
 
-  # libstdc++so.6
-  # https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p1093353304/v168967/ilorest_chif.so
-
   propagatedBuildInputs = [
     jsonpatch
     jsonpath_rw
     jsonpointer
     urllib3
   ];
+  # For some features it needs ilorest_chif.so, which is proprietary but available here:
+  # https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p1093353304/v168967/ilorest_chif.so
+  # But it seems this binary isn't compiled with `extern "C"`, so it's not very useful
 
   meta = with lib; {
-    description = "TODO";
-    license = if withChif then licenses.unfree else licenses.unfree;
-    #homepage = https://github.com/Selfnet/hkp4py;
+    description = "Redfish library with additions for HPE iLO 4 and 5";
+    license = licenses.asl20;
+    homepage = "https://github.com/HewlettPackard/python-ilorest-library";
     maintainers = with maintainers; [ johnazoidberg ];
     platforms = platforms.linux;
   };
