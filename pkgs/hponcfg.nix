@@ -51,6 +51,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = {
+    mainProgram = "hponcfg";
     description = "HPE RILOE II/iLO online configuration utility";
     maintainers = with lib.maintainers; [ johnazoidberg ];
     license = lib.licenses.unfree;
